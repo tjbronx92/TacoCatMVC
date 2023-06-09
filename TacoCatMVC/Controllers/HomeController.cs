@@ -23,9 +23,11 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
     public IActionResult Reverse()
     {
-        return View();
+        Palindrome model = new();
+        return View(model);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -11,35 +11,32 @@
             <h2 class="mt-5 border-2 border-bottom">Instructions</h2>
             <p>Enter a word or sentence and press the button. The input will be evaluated to check if it is a Palindrome.</p>
         </div>
-<div class="col">
-<div>
-<h5>Enter a string</h5>
-@*Form goes here*@
-<form class="row gy-2 gx-3" asp-action="Reverse" asp-controller="Home" method="post">
-<div class="col">
-<input asp-for="InputWord" class="form-control" name="name" value="@Model.InputWord" placeholder="type a word or phrase"/>
-</div>
+        <div class="col">
+            <div>
+                <h5>Enter a string</h5>
+                @*Form goes here*@
+                <form class="row gy-2 gx-3" asp-action="Reverse" asp-controller="Home" method="post">
+                    <div class="col">
+                        <input asp-for="InputWord" class="form-control" name="name" value="@Model.InputWord" placeholder="Type a word or phrase..." />
+                    </div>
+                    <div class="col-12 d-flex align-items-center justify-content-start justify-content-lg-end">
+                        <button id="btnSubmit" type="submit" class="btn btn-dark btn-lg">
+                            Palindrome Test
+                        </button>
+                    </div>
+                </form>
+                <h5 class="mt-5 border-bottom border-2">Reversed Result</h5>
+                <div class="col">
+                    <p class="form-control">@Model.RevWord</p>
+                </div>
 
-<div class="col-12 d-flex align-items-center justify-content-start justify-content-lg-end">
-<button id="btnSubmit" type="submit" class="btn btn-dark btn-lg">
-Palindrome Test
-</button>
-</div>
-</form>
-
-
-<h5 class="mt-5 border-bottom border-2">Reversed Result</h5>
-<div class="col">
-<p class="form-control">@Model.RevWord</p>
-</div>
-
-<h2 class="mt-5 border-bottom border-2">Palindrome Result</h2>
-<div class="table-responsive">
-<p id="results">
-@Model.Message
-</p>
-</div>
-</div>
-</div>
-</div>
+                <h2 class="mt-5 border-bottom border-2">Palindrome Result</h2>
+                <div class="table-responsive">
+                    <p id="results">
+                        @Model.Message
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
