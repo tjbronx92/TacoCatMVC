@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using TacoCatMVC.Models;
 
@@ -28,6 +29,38 @@ public class HomeController : Controller
     {
         Palindrome model = new();
         return View(model);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Reverse(Palindrome palindrome)
+    {
+        string inputWord = palindrome.InputWord;
+        string revWord = "";
+
+        for (int i = inputWord.Length - 1;i >= 0; i--)
+        {
+            revWord += inputWord[i];
+        }
+
+        palindrome.RevWord = revWord;
+
+        revWord = Regex.Replace(revWord.ToLower(), "[^a-zA-Z0-9]+", "");
+        inputWord = Regex.Replace(inputWord.ToLower(), "[^a-zA-Z0-9]+", "");
+
+        if(revWord == inputWord)
+        {
+            palindrome.IsPalindrome = true;
+            palindrome.Message = $"Success {palindrome.InputWord} IS a Palindrome";
+        }
+        else
+        {
+            palindrome.IsPalindrome = false;
+            palindrome.Message = $"Success {palindrome.InputWord} IS NOT a Palindrome";
+        }
+
+
+        return View(palindrome);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
