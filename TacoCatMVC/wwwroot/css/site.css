@@ -1,22 +1,24 @@
-﻿html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+﻿body, html {
+height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+background: #1985b3; /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ececec, #DC9982); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ececec, #F8F7E5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+color: #0d0dd;
+font-family: roboto, sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+h1 {
+font-family: rift, sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+
+main {
+padding-top: 6rem;
 }
